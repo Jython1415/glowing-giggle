@@ -1,0 +1,45 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Oblique;}
+{\colortbl;\red255\green255\blue255;\red25\green60\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c12594\c35385\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww15640\viewh18100\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 The gist of my code\
+\
+IMPORTS\
+\cf2 import math\cf0 \
+\cf2 import random\cf0  # important, all the code is basically setting up so that I can use the random.sample() function\
+# what random.sample(a, n) does is it takes a list (aka. array) 
+\f1\i a
+\f0\i0  as input and selects 
+\f1\i n
+\f0\i0  items from it at random\
+\
+MATH FUNCTIONS\
+\cf2 def lcm(array)\cf0  # I defined a quick math function to return the lowest common multiple of a list of integers\
+# this is useful because I wanted to make sure that when I made an array to call random.sample on, it would be like, the perfect number of items\
+# so that there wouldn\'92t be any error from rounding a decimal value to an integer\
+\
+CLASS\
+\cf2 def Item\cf0  # I just used this class to store the \'93prizes\'94 and you can add whatever properties are relevant\
+\
+MAKING THE ITEMS\
+\cf2 item1 = Item(\'93super cool sword\'94, 1000) \cf0 # so yeah, this is where you have to manually define each item in your prize pool\
+# note that I just have 2 very basic things, name and rarity.\
+# as a technical note, the rarity I\'92m operating with here is relative rarity. If you were to draw 1 item from the prize pool, item1 doesn\'92t have a 1/1000 chance of appearing. Basically, for every 1 \'93super cool sword\'94 you draw, you\'92re likely to get around 100 \'93idk, kinda boring\'94 because 10 is 100x greater than 1000. But, if only item1 was in the prize pool, you would have a 100% chance of getting item1 every time. That\'92s because random.sample(a, n) guarantees n number of prizes.\
+\
+\cf2 items = [item1, item2]\cf0  # note, I made a list of items because it makes it easy to do the same operation on each of them\
+\
+MAKING THE DISTRIBUTION ARRAY\
+\cf2 def make_distribution_array(list_of_items)\cf0 \
+# so this is where I make a new list of items, but this time I make sure the number of each of the items is in according to their relative rarity. Basically, I make sure that for every single item1, there are 100 item2\'92s because of their relative rarity. In addition, I make sure that the probabilities aren\'92t messed up and its an even number\
+\
+\cf2 dist_array = make_distribution_array(items)\cf0  # so, I defined the function above, and then I actually have to call it to make it do something.\
+# the list of items (not repeated items, just each items individually) is the input and it returns a NEW ARRAY with like, hundreds of items so that probabilities are correct. Make sure the new array is stored in a new variable.\
+\
+PRIZEEEEEE\
+\cf2 prize = random.sample(dist_arrary, 5)\cf0 \
+# so is the moment of truth. Drawing 5 items at random. The result is an array so you\'92ll have to iterate over it to print out the results in the way you want.\
+\
+# <3 I hope this helps }
